@@ -1,0 +1,4 @@
+1. drop current table
+2. create current table with the following feilds: id(number), task(string), is_complete(boolean)
+3. insert a record into table
+4. get data from mysql table through apollo server
