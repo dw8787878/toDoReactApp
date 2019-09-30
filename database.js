@@ -1,9 +1,12 @@
 const Sequelize = require('sequelize');
-const db = require('./models/index')
+//const db = require('./models/index')
 
-const Conn = new Sequelize('sys', 'newuser', 'Unique123456#', {
+const Conn = new Sequelize('ToDo', 'newuser', 'Unique123456#', {
   host: 'localhost',
-  dialect: 'mysql'
+  dialect: 'mysql',
+  define: {
+    timestamps: false
+  }
 })
 
 Conn
@@ -14,3 +17,8 @@ Conn
   .catch(err => {
     console.error('Unable to connect to the database:', err);
   });
+
+  module.exports = Conn;
+  global.Conn = Conn;
+
+  require('./bootstrap')();
